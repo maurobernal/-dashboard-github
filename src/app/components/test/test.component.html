@@ -1,2 +1,21 @@
 <p>test works!</p>
-{{ resultado$ | async | json }}
+<div *ngFor="let item of listRepoUser">
+  <h1>{{item.url}}</h1>
+  <span>{{item.id}}</span>
+  <span>{{item.number}}</span>
+  <span>{{item.state}}</span>
+</div>
+
+<div *ngFor="let item of listRepoOrg">
+  <h1>{{item.url}}</h1>
+  <span>{{item.id}}</span>
+  <span>{{item.number}}</span>
+  <span>{{item.state}}</span>
+</div>
+
+
+<div *ngFor="let item of listPulls">
+  <h1>{{item.url}}</h1>
+  <span>{{item.id}}</span>
+  <span>{{item.url}}</span>
+</div>

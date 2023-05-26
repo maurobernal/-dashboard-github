@@ -2,25 +2,26 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
+import { githubRepos } from '../interfaces/github-repos';
+import httpClientBase from './httpClientBase';
+import { githubPulls } from '../interfaces/github-pulls';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GithubService {
-  
-  constructor(private http: HttpClient) { 
+  private readonly  httpClientBase : httpClientBase;
+  constructor(private http: HttpClient) {
+    this.httpClientBase = new httpClientBase(http , 'https://api.github.com/');
   }
 
-  getRepo():Observable<Object>{
-    const BaseAddress  = 'https://api.github.com/';
-    const Endpoint = 'repos/globalassistgroup/gag.api_operations/pulls?state=close&sort=created&per_page=10&page=1'
-    const httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type':  'application/json',
-      Authorization: 'Bearer '
-    })};
-    
-    return this.http.get(BaseAddress + Endpoint, httpOptions );
+
+  getRepo(entity: string):Observable<githubRepos[]>{
+      return  this.httpClientBase.get<githubRepos[]>(entity);
+  }
+
+  getPull(entity: string):Observable<githubPulls[]>{
+    return this.httpClientBase.get<githubPulls[]>(entity);
   }
 
 }
