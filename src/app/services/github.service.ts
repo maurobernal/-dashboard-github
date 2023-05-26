@@ -1,27 +1,25 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
-import { githubRepos } from '../interfaces/github-repos';
-import httpClientBase from './httpClientBase';
-import { githubPulls } from '../interfaces/github-pulls';
+import { Observable } from 'rxjs';
+import { GithubRepos } from '../interfaces/githubrepos';
+import { GithubPulls } from '../interfaces/githubpulls';
+import HttpClientBase from './HttpClientBase';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class GithubService {
-  private readonly  httpClientBase : httpClientBase;
-  constructor(private http: HttpClient) {
-    this.httpClientBase = new httpClientBase(http , 'https://api.github.com/');
+  private readonly httpClientBase: HttpClientBase;
+
+  constructor(private readonly http: HttpClient) {
+    this.httpClientBase = new HttpClientBase(http, 'https://api.github.com/');
   }
 
-
-  getRepo(entity: string):Observable<githubRepos[]>{
-      return  this.httpClientBase.get<githubRepos[]>(entity);
+  getRepo(entity: string): Observable<GithubRepos[]> {
+    return this.httpClientBase.get<GithubRepos[]>(entity);
   }
 
-  getPull(entity: string):Observable<githubPulls[]>{
-    return this.httpClientBase.get<githubPulls[]>(entity);
+  getPull(entity: string): Observable<GithubPulls[]> {
+    return this.httpClientBase.get<GithubPulls[]>(entity);
   }
-
 }

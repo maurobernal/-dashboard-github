@@ -5,6 +5,19 @@
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
+    "paths": {
+      "@components/*": [
+        "app/components/*"],
+      "@interfaces/*": [
+        "app/interfaces/*"
+      ],
+      "@modules/*": [
+        "app/modules/*"
+      ],
+      "@services/*": [
+        "app/services/*"
+      ],
+    },
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
