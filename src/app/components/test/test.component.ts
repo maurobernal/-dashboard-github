@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { GithubPulls } from 'src/app/interfaces/githubpulls';
 import { GithubRepos } from 'src/app/interfaces/githubrepos';
-import { GithubService } from 'src/app/services/Github.service';
+import { GithubService } from 'src/app/services/github.service';
 import { configGitHub } from '../../../../enviroments.secrets';
 
 @Component({
