@@ -1,0 +1,44 @@
+<div class="bg-purple-900 py-10 px-12">
+<div class="grid grid-flow-row gap-2 text-neutral-600 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+  <div *ngFor="let item of listPulls" class="my-2 rounded shadow-lg shadow-gray-200 dark:shadow-gray-900 bg-white dark:bg-gray-800 duration-300 hover:-translate-y-1 text-center">
+
+      <div class="bg-slate-100">
+        <h1 class="text-xs mb-4 font-bold leading-relaxed text-purple-950" x-text="post.title">
+          {{ item.base.repo.name  }}
+        </h1>
+      </div>
+      <h1 class="text-lg font-bold text-purple-100">
+          #{{ item.number }} {{ item.title }}
+      </h1>
+
+        <div class="grid grid-flow-col leading-5 text-gray-500 dark:text-gray-400 p-2">
+
+            <div *ngFor="let user of item.assignees">
+              <small class="text-green-600 font-bold"> <i class="bi bi-person-circle"></i> {{user.login}}</small>
+            </div>
+            <small><i class="bi bi-calendar"></i> {{ item.created_at | date:'medium' }}</small>
+            <small class="bg-black px-2 rounded-sm">{{ item.state }}</small>
+        </div>
+          <div *ngIf="item.merged_at">
+                <small class="bg-blue-700 text-gray-100 px-2 rounded-sm">Merged</small>
+                <small class="text-blue-400 px-2">{{item.merged_at | date:'medium' }}
+                </small>
+          </div>
+
+        <div class="flex items-center justify-between px-6">
+              <div class="grid grid-flow-col p-2">
+                <div *ngFor="let label of item.labels"
+                  class="inline-block relative rounded-md bg-gray-400 ml-2">
+                          <small class="leading-5 text-black font-bold text-xs p-2">{{label.name}}</small>
+                </div>
+              </div>
+
+            <a href="{{item.html_url}}" target="_blank"
+              class="middle none font-sans font-bold center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-2 px-4 rounded-lg border border-blue-500 text-blue-500 hover:opacity-75 focus:ring focus:ring-blue-200 active:opacity-[0.85]">
+              <i class="bi bi-eye"></i> ...
+            </a>
+        </div>
+
+  </div>
+</div>
+</div>

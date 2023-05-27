@@ -7,12 +7,12 @@
     "forceConsistentCasingInFileNames": true,
     "paths": {
       "@components/*": [
-        "app/components/*"],
+        "src/app/components/*"],
       "@interfaces/*": [
-        "app/interfaces/*"
+        "src/app/interfaces/*"
       ],
       "@modules/*": [
-        "app/modules/*"
+        "src/app/modules/*"
       ],
       "@services/*": [
         "app/services/*"

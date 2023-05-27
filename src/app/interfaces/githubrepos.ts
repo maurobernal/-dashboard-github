@@ -3,4 +3,5 @@ export interface GithubRepos {
   id: number
   number: number
   state: string
+  name: string
 }

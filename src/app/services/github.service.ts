@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { GithubRepos } from '../interfaces/githubrepos';
 import { GithubPulls } from '../interfaces/githubpulls';
-import HttpClientBase from './HttpClientBase';
+import HttpClientBase from './httpclientbase';
 
 @Injectable({
   providedIn: 'root',
@@ -21,5 +21,9 @@ export class GithubService {
 
   getPull(entity: string): Observable<GithubPulls[]> {
     return this.httpClientBase.get<GithubPulls[]>(entity);
+  }
+
+  getPull2(entity: string): Observable<Object> {
+    return this.httpClientBase.get<Object>(entity);
   }
 }
