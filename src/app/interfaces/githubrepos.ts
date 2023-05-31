@@ -5,3 +5,7 @@ export interface GithubRepos {
   state: string
   name: string
 }
+
+export interface ListPullsEntity {
+  Pulls :any[]
+}
