@@ -1,9 +1,16 @@
 # DashboardGithub
 ![resumen project](https://github.com/maurobernal/-dashboard-github/blob/main/githubdashboard.png)
-
-
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.0.
 
+
+## Install
+#Install Packages dependencies. You must run
+npm i
+
+#Secrets. You need enviroments.secrets.ts. 
+mv enviroments.secrets.samples enviroments.secrets.samples.ts
+
+#Change values in enviroments.secrets.ts
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
