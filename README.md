@@ -8,7 +8,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 npm i
 
 #Secrets. You need enviroments.secrets.ts. 
-mv enviroments.secrets.samples enviroments.secrets.samples.ts
+cp enviroments.secrets.samples enviroments.secrets.samples.ts
 
 #Change values in enviroments.secrets.ts
 ## Development server
