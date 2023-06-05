@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { GithubSearchPulls } from '@interfaces/githubsearchpulls';
 import { GithubRepos } from '../interfaces/githubrepos';
 import { GithubPulls } from '../interfaces/githubpulls';
 import HttpClientBase from './httpclientbase';
@@ -25,5 +26,10 @@ export class GithubService {
 
   getPull2(entity: string): Observable<Object> {
     return this.httpClientBase.get<Object>(entity);
+  }
+
+  getTotalPullOpen() : Observable<GithubSearchPulls> {
+    return this.httpClientBase
+      .get<GithubSearchPulls>('search/issues?q=is:pr+repo:globalassistgroup/gag.frontend+created:2023-05-01..2023-06-04+state:closed');
   }
 }

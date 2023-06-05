@@ -8,10 +8,12 @@ import { ListreposComponent } from '@components/dashboard/listrepos/listrepos.co
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ReposComponent } from './components/dashboard/listrepos/repos/repos.component';
+import { NgChartsModule } from 'ng2-charts';
+import { Kpi1Component } from './components/dashboard/kpi1/kpi1.component';
 
 @NgModule({
-  declarations: [AppComponent, TestComponent, DashboardComponent, ListreposComponent, ReposComponent],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  declarations: [AppComponent, TestComponent, DashboardComponent, ListreposComponent, ReposComponent, Kpi1Component],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, NgChartsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
